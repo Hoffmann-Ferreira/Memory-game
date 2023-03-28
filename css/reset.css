@@ -1,0 +1,33 @@
+/* Reset styles */
+
+/* Box sizing rules */
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  
+  /* Remove default padding */
+  ul[class], ol[class] {
+    padding: 0;
+  }
+  
+  /* Remove default margin */
+  body, h1, h2, h3, h4, h5, h6, p, blockquote, 
+  pre, dl, dd, ol, ul, figure {
+    margin: 0;
+  }
+  
+  /* Set default font size and line height */
+  body {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  
+  /* Remove list styles on ul, ol elements */
+  ul, ol {
+    list-style: none;
+  }
+  
+  /* Remove anchor text decoration */
+  a {
+    text-decoration: none;
+  }
