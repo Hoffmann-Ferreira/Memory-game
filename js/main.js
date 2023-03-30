@@ -3,14 +3,14 @@ let amoutCards = 0;
 
 //function verification number cards
 function formAmoutCards() {
+  event.preventDefault();
   let form = document.getElementById("formCards");
   let numberCards = form.elements["amontCards"].value;
-  event.preventDefault();
   amoutCards = numberCards;
 
-  if (amoutCards <= 14 && amoutCards >=4 && amoutCards % 2 === 0) {
+  if (amoutCards <= 14 && amoutCards >= 4 && amoutCards % 2 === 0) {
     location.href = "game.html";
-    console.log("deu certo");
+    localStorage.setItem('amoutCards', amoutCards)
   } else {
     let numberNotEven = document.getElementById("modalNotEven");
 
@@ -19,7 +19,12 @@ function formAmoutCards() {
         <p>Um número par qualquer é numero que ao ser dividido pelo número dois, resulta em um número inteiro 😁</p>
         <button onclick="window.location.reload()"> tentar novamente </button>
       </div>`;
+  }
+  console.log("dentro", amoutCards);
 
-    console.log("mano, tá funfando!");
-  };
+}
+
+function test() {
+    amoutCards = localStorage.getItem('amoutCards');
+    console.log("número", amoutCards );
 }
