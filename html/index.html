@@ -10,26 +10,30 @@
   </head>
   <body>
     <header></header>
-    <main><h3>Bem vindo ao jogo da memória!</h3>
-    <p> O objetivo deste jogo é testar sua memória!</p>
-    <p> As regras são as seguintes:</p>
-    <ol>
-      <li>Escolha o número par de cartas entre 4 e 14!</li>
-      <li>Cada clique em uma carta irá virar ela</li>
-      <li>Encontre as imagens semelhantes de cada carta</li>
-    </ol>
-    <p> Tente completar o jogo com o menor número possível de cliques!</p>
-    <form>
-      <fieldset>
-        <legen> Escolha o número da cartas entre 4 e 14!</legen>
-        <P>
-          <label for="number">Qual o número de cartas?</label>
-          <input type="number" name="number"/>
-        </P>
-        <button type="submit">Iniciar o jogo!</button>
-      </fieldset>
-    </form>
-  </main>
+    <main>
+      <h3>Bem vindo ao jogo da memória!</h3>
+      <p>O objetivo deste jogo é testar sua memória!</p>
+      <p>As regras são as seguintes:</p>
+      <ol>
+        <li>Escolha o número par de cartas entre 4 e 14!</li>
+        <li>Cada clique em uma carta irá virar ela</li>
+        <li>Encontre as imagens semelhantes de cada carta</li>
+      </ol>
+      <p>Tente completar o jogo com o menor número possível de cliques!</p>
+      <form id="formCards">
+        <fieldset>
+          <legen> Escolha o número da cartas entre 4 e 14!</legen>
+          <p>
+            <label for="number">Qual o número de cartas?</label>
+            <input id="amontCards" type="number" name="number" />
+          </p>
+          <button type="submit" value="submit" onclick="formAmoutCards()">
+            Iniciar o jogo!
+          </button>
+        </fieldset>
+      </form>
+    </main>
+    <div id="modalNotEven"></div>
     <footer></footer>
     <script src="../js/main.js"></script>
   </body>
