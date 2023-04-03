@@ -23,10 +23,10 @@
   }
   
   /* Remove list styles on ul, ol elements */
-  ul, ol {
+  /* ul, ol {
     list-style: none;
   }
-  
+   */
   /* Remove anchor text decoration */
   a {
     text-decoration: none;
