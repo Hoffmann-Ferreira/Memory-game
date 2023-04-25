@@ -1,12 +1,46 @@
 #modalNumberNotEven {
-    width: 100%;
-    height: 100%;
-    top: 0%;
-    background-color: #2221219f;
-    position: fixed;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    z-index: 1;
-};
+  width: 100%;
+  height: 100%;
+  top: 0%;
+  background-color: #2221219f;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 1;
+}
+
+#card {
+  width: 20rem;
+  height: 20rem;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 1s;
+  border: solid;
+}
+
+#card-flipped {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.card-front {
+  z-index: 2;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+}
+
+.active {
+  transform: rotateY(180deg);
+
+}

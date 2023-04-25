@@ -21,10 +21,13 @@ function formAmoutCards() {
       </div>`;
   }
   console.log("dentro", amoutCards);
+};
 
+//function show cards
+//function turn cards 
+
+function turnCads () {
+  document.getElementById("card").classList.toggle("active");
 }
 
-function test() {
-    amoutCards = localStorage.getItem('amoutCards');
-    console.log("número", amoutCards );
-}
+
