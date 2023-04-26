@@ -97,18 +97,15 @@ function formAmoutCards() {
 //function show cards
 function showCards() {
   amoutCards = localStorage.getItem("amoutCards");
+  console.log("digitadas", amoutCards)
+  amoutCards = amoutCards / 2;
+  console.log("renderizadas",amoutCards);
   let aplicationCards = document.getElementById("cardsContainer");
 
   cardsInTheGame.slice(0, amoutCards).map((card) =>{
-    return( aplicationCards.innerHTML += card);
-  })
+    return( aplicationCards.innerHTML += card + card);
+  });
 
-
-  console.log("entrei");
-  console.log(amoutCards);
-
-  
- 
 }
 
 //function turn cards
