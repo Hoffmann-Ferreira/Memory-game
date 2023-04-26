@@ -1,5 +1,76 @@
 //verification number cards
 let amoutCards = 0;
+//number cads in the game;
+let cardsInTheGame = [`<div id="card" onclick="turnCads()">
+<div class="card-back">
+    <img src="../images/charactersCards/Homer_Simpson_2006.png"/>
+</div>
+<div class="card-front"> back</div>
+</div>
+`,
+`<div id="card" onclick="turnCads()">
+<div class="card-back">
+    <img src="../images/charactersCards/Homer_Simpson_2006.png"/>
+</div>
+<div class="card-front"> back</div>
+</div>
+`,
+`<div id="card" onclick="turnCads()">
+<div class="card-back">
+    <img src="../images/charactersCards/Homer_Simpson_2006.png"/>
+</div>
+<div class="card-front"> back</div>
+</div>
+`,
+`<div id="card" onclick="turnCads()">
+<div class="card-back">
+    <img src="../images/charactersCards/Homer_Simpson_2006.png"/>
+</div>
+<div class="card-front"> back</div>
+</div>
+`,
+`<div id="card" onclick="turnCads()">
+<div class="card-back">
+    <img src="../images/charactersCards/Homer_Simpson_2006.png"/>
+</div>
+<div class="card-front"> back</div>
+</div>
+`,
+`<div id="card" onclick="turnCads()">
+<div class="card-back">
+    <img src="../images/charactersCards/Homer_Simpson_2006.png"/>
+</div>
+<div class="card-front"> back</div>
+</div>
+`,
+`<div id="card" onclick="turnCads()">
+<div class="card-back">
+    <img src="../images/charactersCards/Homer_Simpson_2006.png"/>
+</div>
+<div class="card-front"> back</div>
+</div>
+`,
+`<div id="card" onclick="turnCads()">
+<div class="card-back">
+    <img src="../images/charactersCards/Homer_Simpson_2006.png"/>
+</div>
+<div class="card-front"> back</div>
+</div>
+`,
+`<div id="card" onclick="turnCads()">
+<div class="card-back">
+    <img src="../images/charactersCards/Homer_Simpson_2006.png"/>
+</div>
+<div class="card-front"> back</div>
+</div>
+`,
+`<div id="card" onclick="turnCads()">
+<div class="card-back">
+    <img src="../images/charactersCards/Homer_Simpson_2006.png"/>
+</div>
+<div class="card-front"> back</div>
+</div>
+` ];
 
 //function verification number cards
 function formAmoutCards() {
@@ -9,8 +80,8 @@ function formAmoutCards() {
   amoutCards = numberCards;
 
   if (amoutCards <= 14 && amoutCards >= 4 && amoutCards % 2 === 0) {
+    localStorage.setItem("amoutCards", amoutCards);
     location.href = "game.html";
-    localStorage.setItem('amoutCards', amoutCards)
   } else {
     let numberNotEven = document.getElementById("modalNotEven");
 
@@ -21,13 +92,33 @@ function formAmoutCards() {
       </div>`;
   }
   console.log("dentro", amoutCards);
-};
+}
 
 //function show cards
-//function turn cards 
+function showCards() {
+  amoutCards = localStorage.getItem("amoutCards");
+  let aplicationCards = document.getElementById("cardsContainer");
 
-function turnCads () {
+  cardsInTheGame.slice(0, amoutCards).map((card) =>{
+    return( aplicationCards.innerHTML += card);
+  })
+
+
+  console.log("entrei");
+  console.log(amoutCards);
+
+  
+ 
+}
+
+//function turn cards
+
+function turnCads() {
   document.getElementById("card").classList.toggle("active");
 }
 
 
+// for (let i = 0; i <= amoutCards; i++) {
+//   cardsInTheGame;
+// console.log("verificando",i)
+// }
