@@ -11,16 +11,47 @@
   z-index: 1;
 }
 
-#card {
+#card,
+#card0,
+#card1,
+#card2,
+#card3,
+#card4,
+#card5,
+#card6,
+#card7,
+#card8,
+#card9,
+#card10,
+#card11,
+#card12,
+#card13,
+#card14 {
   width: 20rem;
   height: 20rem;
   position: relative;
   transform-style: preserve-3d;
   transition: transform 1s;
   border: solid;
+  margin-bottom: 2rem;
 }
 
-#card-flipped {
+#card-flipped,
+#card0-flipped,
+#card1-flipped,
+#card2-fliped,
+#card3-fliped,
+#card4-fliped,
+#card5-fliped,
+#card6-fliped,
+#card7-fliped,
+#card8-fliped,
+#card9-fliped,
+#card10-fliped,
+#card11-fliped,
+#card12-fliped,
+#card13-fliped,
+#card14-fliped {
   transform: rotateY(180deg);
 }
 
@@ -39,8 +70,16 @@
 .card-back {
   transform: rotateY(180deg);
 }
+.card-back,
+img {
+  width: 90%;
+  height: 100%;
+}
 
 .active {
   transform: rotateY(180deg);
+}
 
+.right {
+  transform: rotateY(180deg);
 }

@@ -1,76 +1,9 @@
 //verification number cards
 let amoutCards = 0;
+//characters game:
+
 //number cads in the game;
-let cardsInTheGame = [`<div id="card" onclick="turnCads()">
-<div class="card-back">
-    <img src="../images/charactersCards/Homer_Simpson_2006.png"/>
-</div>
-<div class="card-front"> back</div>
-</div>
-`,
-`<div id="card" onclick="turnCads()">
-<div class="card-back">
-    <img src="../images/charactersCards/Homer_Simpson_2006.png"/>
-</div>
-<div class="card-front"> back</div>
-</div>
-`,
-`<div id="card" onclick="turnCads()">
-<div class="card-back">
-    <img src="../images/charactersCards/Homer_Simpson_2006.png"/>
-</div>
-<div class="card-front"> back</div>
-</div>
-`,
-`<div id="card" onclick="turnCads()">
-<div class="card-back">
-    <img src="../images/charactersCards/Homer_Simpson_2006.png"/>
-</div>
-<div class="card-front"> back</div>
-</div>
-`,
-`<div id="card" onclick="turnCads()">
-<div class="card-back">
-    <img src="../images/charactersCards/Homer_Simpson_2006.png"/>
-</div>
-<div class="card-front"> back</div>
-</div>
-`,
-`<div id="card" onclick="turnCads()">
-<div class="card-back">
-    <img src="../images/charactersCards/Homer_Simpson_2006.png"/>
-</div>
-<div class="card-front"> back</div>
-</div>
-`,
-`<div id="card" onclick="turnCads()">
-<div class="card-back">
-    <img src="../images/charactersCards/Homer_Simpson_2006.png"/>
-</div>
-<div class="card-front"> back</div>
-</div>
-`,
-`<div id="card" onclick="turnCads()">
-<div class="card-back">
-    <img src="../images/charactersCards/Homer_Simpson_2006.png"/>
-</div>
-<div class="card-front"> back</div>
-</div>
-`,
-`<div id="card" onclick="turnCads()">
-<div class="card-back">
-    <img src="../images/charactersCards/Homer_Simpson_2006.png"/>
-</div>
-<div class="card-front"> back</div>
-</div>
-`,
-`<div id="card" onclick="turnCads()">
-<div class="card-back">
-    <img src="../images/charactersCards/Homer_Simpson_2006.png"/>
-</div>
-<div class="card-front"> back</div>
-</div>
-` ];
+let cardsInTheGame = [];
 
 //function verification number cards
 function formAmoutCards() {
@@ -97,21 +30,68 @@ function formAmoutCards() {
 //function show cards
 function showCards() {
   amoutCards = localStorage.getItem("amoutCards");
-  console.log("digitadas", amoutCards)
-  amoutCards = amoutCards / 2;
+
+  for(i = 0; i <= amoutCards; i++){
+    cardsInTheGame += `<div id =card${i} class="card" onclick="turnCads('card${i}')" data-identifier="card">
+    <div class="card-back" data-identifier="back-face">
+    <img src='../images/charactersCards/simpsons${i}.png'>
+    </div>
+    <div class="card-front" data-identifier="front-face">
+    </div>
+</div>`
+  }
+
+  
+  console.log("digitadas", amoutCards);
   console.log("renderizadas",amoutCards);
   let aplicationCards = document.getElementById("cardsContainer");
+  aplicationCards.innerHTML = cardsInTheGame;
 
-  cardsInTheGame.slice(0, amoutCards).map((card) =>{
-    return( aplicationCards.innerHTML += card + card);
-  });
+  // cardsInTheGame.slice(0, amoutCards).map((card) =>{
+  //   return( aplicationCards.innerHTML += card + card);
+  // });
 
 }
 
 //function turn cards
 
-function turnCads() {
-  document.getElementById("card").classList.toggle("active");
+function turnCads( card) {
+
+  if(card === "card1"){
+    document.getElementById("card").classList.toggle("active");
+
+  }
+  if(card === "card2"){
+    document.getElementById("card2").classList.toggle("active");
+  }
+  if(card === "card3"){
+    document.getElementById("card3").classList.toggle("active");
+  }
+
+  // document.getElementById("card").classList.toggle("active");
+  // document.getElementById("card2").classList.toggle("active");
+}
+
+//function check cards 
+
+function checkCards (){
+  let cont = 0;
+  cont ++
+
+  let homer = document.getElementById("card");
+  let cloneHomer = document.getElementById("card3");
+  console.log("contador",cont);
+
+  if(cont == 2){
+    if(homer.dataset.name === "HoHo"){
+   document.getElementById("card").classList.add("right");
+   console.log("deu certo!")
+   
+  }
+  }
+
+  
+  
 }
 
 
