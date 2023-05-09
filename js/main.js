@@ -31,7 +31,7 @@ function formAmoutCards() {
 function showCards() {
   amoutCards = localStorage.getItem("amoutCards");
 
-  for(i = 0; i <= amoutCards; i++){
+  for(i = 1; i <= amoutCards; i++){
     cardsInTheGame += `<div id =card${i} class="card" onclick="turnCads('card${i}')" data-identifier="card">
     <div class="card-back" data-identifier="back-face">
     <img src='../images/charactersCards/simpsons${i}.png'>
@@ -55,21 +55,12 @@ function showCards() {
 
 //function turn cards
 
-function turnCads( card) {
+function turnCads(card) {
 
-  if(card === "card1"){
-    document.getElementById("card").classList.toggle("active");
+  document.getElementById(card).classList.toggle("active");
 
-  }
-  if(card === "card2"){
-    document.getElementById("card2").classList.toggle("active");
-  }
-  if(card === "card3"){
-    document.getElementById("card3").classList.toggle("active");
-  }
+  console.log(cardsInTheGame);
 
-  // document.getElementById("card").classList.toggle("active");
-  // document.getElementById("card2").classList.toggle("active");
 }
 
 //function check cards 
@@ -89,8 +80,6 @@ function checkCards (){
    
   }
   }
-
-  
   
 }
 
