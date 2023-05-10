@@ -1,16 +1,39 @@
 //verification number cards
 let amoutCards = 0;
-//characters game:
 
 //number cads in the game
 let cardsInTheGame = [];
-//characters in the game
-let gameCharacters = ["andrei", "homer", "homer", "marge", "marge", "bart", "bart", "lisa","lisa", "maggie", "maggie", "snowball", "snowball", "helper", "helper"]
 
-//check card = 
+//characters in the game
+let gameCharacters = [
+  "andrei",
+  "homer",
+  "homer",
+  "marge",
+  "marge",
+  "bart",
+  "bart",
+  "lisa",
+  "lisa",
+  "maggie",
+  "maggie",
+  "snowball",
+  "snowball",
+  "helper",
+  "helper",
+];
+
+//check card
 let checkCard;
+
 //counter click in the cards for verification;
 let checkCounter = 0;
+
+//counter user attempt
+let attempt = 0;
+
+//card pair counter
+let cardPair = 0;
 
 //function verification number cards
 function formAmoutCards() {
@@ -38,88 +61,103 @@ function formAmoutCards() {
 function showCards() {
   amoutCards = localStorage.getItem("amoutCards");
 
-  for(i = 1; i <= amoutCards; i++){
+  for (i = 1; i <= amoutCards; i++) {
     cardsInTheGame.push(`<div id =card${i} class="card" data-identity="${gameCharacters[i]}" onclick="turnCads('card${i}')" data-identifier="card">
     <div class="card-back">
     <img src='../images/charactersCards/simpsons${i}.png'>
     </div>
     <div class="card-front">
     </div>
-</div>`) 
+</div>`);
   }
-
-  // console.log("digitadas", amoutCards);
-  // console.log("renderizadas",amoutCards);
 
   function shuffle() {
     return Math.random() - 0.5;
-};
+  }
 
-cardsInTheGame.sort(shuffle);
+  cardsInTheGame.sort(shuffle);
 
   let aplicationCards = document.getElementById("cardsContainer");
   aplicationCards.innerHTML = cardsInTheGame;
-
 }
 
 //function turn cards
-
 function turnCads(card) {
-  checkCounter++
+  checkCounter++;
+  attempt++;
 
   document.getElementById(card).classList.add("active");
-  
-  if(checkCounter === 1){
+  //show contador attempt
+  let showAttempt = document.getElementById("attempts");
+  showAttempt.innerHTML = `<h4>Quantidade de tentativas ${attempt}</h4>`;
+
+  if (checkCounter === 1) {
     checkCard = card;
-  };
- 
-  if(checkCounter > 1) {
-    checkCards(card)
-  };
+  }
+
+  if (checkCounter > 1) {
+    checkCards(card);
+  }
 }
 
-//function check cards 
-
+//function check cards
 function checkCards(character) {
- 
   console.log("dentro", character);
-  console.log("primeiro clique",  checkCard);
- 
+  console.log("primeiro clique", checkCard);
+
   let firstSelected = document.getElementById(checkCard);
   let selected = document.getElementById(character);
   console.log(selected.dataset.identity);
 
-    if(selected.dataset.identity === firstSelected.dataset.identity ||firstSelected.dataset.identity === selected.dataset.identity ){
-      firstSelected.classList.add("right")
-   selected.classList.add("right");
-   checkCounter = 0;
-   checkCard = "";
-   console.log("deu certo!") } else{
-
-    let untap = document.querySelectorAll(".active")
+  if (
+    selected.dataset.identity === firstSelected.dataset.identity ||
+    firstSelected.dataset.identity === selected.dataset.identity
+  ) {
+    firstSelected.classList.add("right");
+    selected.classList.add("right");
+    checkCounter = 0;
+    checkCard = "";
+    cardPair++;
+    finishedGame(cardPair);
+    console.log("deu certo!");
+  } else {
+    let untap = document.querySelectorAll(".active");
     console.log("dentro do else");
     console.log(untap);
 
     setTimeout(() => {
-untap.forEach( element => {
-      console.log("dentro do for")
-      element.classList.remove("active")
-    })
+      untap.forEach((element) => {
+        console.log("dentro do for");
+        element.classList.remove("active");
+      });
+    }, 1000);
 
-    }, 1000)
-
-    
     checkCounter = 0;
-   checkCard = "";
-
-    // document.getElementById(character).classList.remove("active");
-    // document.getElementById(checkCard).classList.remove("active");
-   }
-  
+    checkCard = "";
+  }
 }
 
+//function finished game
+function finishedGame(finished) {
+  console.log("entrei na função");
+  if (finished === amoutCards / 2) {
+    console.log("entrei no if");
 
-// for (let i = 0; i <= amoutCards; i++) {
-//   cardsInTheGame;
-// console.log("verificando",i)
-// }
+    setTimeout(() => {
+      let modalcongratulations = document.getElementById("finishedGame");
+      modalcongratulations.innerHTML = `<div class="modalCloseOrder">
+    <div class="modalConfirmOrder">
+      <h2> Confirmar pedido</h2>
+      <div class="buttonContainer">
+      <button onclick="restartingGame()">Reiniciar</button>
+      </div>   
+    </div>
+  </div>`;
+    }, 1000);
+  }
+}
+
+//function navigation restarting game
+function restartingGame() {
+  location.href = "index.html";
+}
