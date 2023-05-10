@@ -2,8 +2,15 @@
 let amoutCards = 0;
 //characters game:
 
-//number cads in the game;
+//number cads in the game
 let cardsInTheGame = [];
+//characters in the game
+let gameCharacters = ["andrei", "homer", "homer", "marge", "marge", "bart", "bart", "lisa","lisa", "maggie", "maggie", "snowball", "snowball", "helper", "helper"]
+
+//check card = 
+let checkCard;
+//counter click in the cards for verification;
+let checkCounter = 0;
 
 //function verification number cards
 function formAmoutCards() {
@@ -32,54 +39,82 @@ function showCards() {
   amoutCards = localStorage.getItem("amoutCards");
 
   for(i = 1; i <= amoutCards; i++){
-    cardsInTheGame += `<div id =card${i} class="card" onclick="turnCads('card${i}')" data-identifier="card">
-    <div class="card-back" data-identifier="back-face">
+    cardsInTheGame.push(`<div id =card${i} class="card" data-identity="${gameCharacters[i]}" onclick="turnCads('card${i}')" data-identifier="card">
+    <div class="card-back">
     <img src='../images/charactersCards/simpsons${i}.png'>
     </div>
-    <div class="card-front" data-identifier="front-face">
+    <div class="card-front">
     </div>
-</div>`
+</div>`) 
   }
 
-  
-  console.log("digitadas", amoutCards);
-  console.log("renderizadas",amoutCards);
+  // console.log("digitadas", amoutCards);
+  // console.log("renderizadas",amoutCards);
+
+  function shuffle() {
+    return Math.random() - 0.5;
+};
+
+cardsInTheGame.sort(shuffle);
+
   let aplicationCards = document.getElementById("cardsContainer");
   aplicationCards.innerHTML = cardsInTheGame;
-
-  // cardsInTheGame.slice(0, amoutCards).map((card) =>{
-  //   return( aplicationCards.innerHTML += card + card);
-  // });
 
 }
 
 //function turn cards
 
 function turnCads(card) {
+  checkCounter++
 
-  document.getElementById(card).classList.toggle("active");
-
-  console.log(cardsInTheGame);
-
+  document.getElementById(card).classList.add("active");
+  
+  if(checkCounter === 1){
+    checkCard = card;
+  };
+ 
+  if(checkCounter > 1) {
+    checkCards(card)
+  };
 }
 
 //function check cards 
 
-function checkCards (){
-  let cont = 0;
-  cont ++
+function checkCards(character) {
+ 
+  console.log("dentro", character);
+  console.log("primeiro clique",  checkCard);
+ 
+  let firstSelected = document.getElementById(checkCard);
+  let selected = document.getElementById(character);
+  console.log(selected.dataset.identity);
 
-  let homer = document.getElementById("card");
-  let cloneHomer = document.getElementById("card3");
-  console.log("contador",cont);
+    if(selected.dataset.identity === firstSelected.dataset.identity ||firstSelected.dataset.identity === selected.dataset.identity ){
+      firstSelected.classList.add("right")
+   selected.classList.add("right");
+   checkCounter = 0;
+   checkCard = "";
+   console.log("deu certo!") } else{
 
-  if(cont == 2){
-    if(homer.dataset.name === "HoHo"){
-   document.getElementById("card").classList.add("right");
-   console.log("deu certo!")
-   
-  }
-  }
+    let untap = document.querySelectorAll(".active")
+    console.log("dentro do else");
+    console.log(untap);
+
+    setTimeout(() => {
+untap.forEach( element => {
+      console.log("dentro do for")
+      element.classList.remove("active")
+    })
+
+    }, 1000)
+
+    
+    checkCounter = 0;
+   checkCard = "";
+
+    // document.getElementById(character).classList.remove("active");
+    // document.getElementById(checkCard).classList.remove("active");
+   }
   
 }
 
