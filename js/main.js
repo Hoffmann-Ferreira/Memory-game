@@ -35,6 +35,14 @@ let attempt = 0;
 //card pair counter
 let cardPair = 0;
 
+// timer variables;
+let seconds = 0;
+let minutes = 0;
+let hours = 0;
+let time;
+let formattedTime;
+const timerElement = document.getElementById("timer");
+
 //function verification number cards
 function formAmoutCards() {
   event.preventDefault();
@@ -54,12 +62,12 @@ function formAmoutCards() {
         <button onclick="window.location.reload()"> tentar novamente </button>
       </div>`;
   }
-  console.log("dentro", amoutCards);
 }
 
 //function show cards
 function showCards() {
   amoutCards = localStorage.getItem("amoutCards");
+  time = setInterval(updateTimer, 1000);
 
   for (i = 1; i <= amoutCards; i++) {
     cardsInTheGame.push(`<div id =card${i} class="card" data-identity="${gameCharacters[i]}" onclick="turnCads('card${i}')" data-identifier="card">
@@ -78,7 +86,10 @@ function showCards() {
   cardsInTheGame.sort(shuffle);
 
   let aplicationCards = document.getElementById("cardsContainer");
-  aplicationCards.innerHTML = cardsInTheGame;
+
+  cardsInTheGame.map((card) => {
+    aplicationCards.innerHTML += card;
+  });
 }
 
 //function turn cards
@@ -87,7 +98,6 @@ function turnCads(card) {
   attempt++;
 
   document.getElementById(card).classList.add("active");
-  //show contador attempt
   let showAttempt = document.getElementById("attempts");
   showAttempt.innerHTML = `<h4>Quantidade de tentativas ${attempt}</h4>`;
 
@@ -102,12 +112,8 @@ function turnCads(card) {
 
 //function check cards
 function checkCards(character) {
-  console.log("dentro", character);
-  console.log("primeiro clique", checkCard);
-
   let firstSelected = document.getElementById(checkCard);
   let selected = document.getElementById(character);
-  console.log(selected.dataset.identity);
 
   if (
     selected.dataset.identity === firstSelected.dataset.identity ||
@@ -119,15 +125,11 @@ function checkCards(character) {
     checkCard = "";
     cardPair++;
     finishedGame(cardPair);
-    console.log("deu certo!");
   } else {
     let untap = document.querySelectorAll(".active");
-    console.log("dentro do else");
-    console.log(untap);
 
     setTimeout(() => {
       untap.forEach((element) => {
-        console.log("dentro do for");
         element.classList.remove("active");
       });
     }, 1000);
@@ -139,20 +141,25 @@ function checkCards(character) {
 
 //function finished game
 function finishedGame(finished) {
-  console.log("entrei na função");
   if (finished === amoutCards / 2) {
-    console.log("entrei no if");
+    clearInterval(time);
 
     setTimeout(() => {
       let modalcongratulations = document.getElementById("finishedGame");
       modalcongratulations.innerHTML = `<div class="modalCloseOrder">
     <div class="modalConfirmOrder">
-      <h2> Confirmar pedido</h2>
+      <h2> Parabéns você venceu!!!</h2>
+      <div id="yourTime"></div>
+      <div id="yourAttempts"></div>
       <div class="buttonContainer">
       <button onclick="restartingGame()">Reiniciar</button>
       </div>   
     </div>
   </div>`;
+      let showdoAttempts = document.getElementById("yourAttempts");
+      let showTime = document.getElementById("yourTime");
+      showdoAttempts.textContent = `Você tentou ${attempt} vezes`;
+      showTime.textContent = `Seu tempo foi de ${formattedTime}`;
     }, 1000);
   }
 }
@@ -160,4 +167,27 @@ function finishedGame(finished) {
 //function navigation restarting game
 function restartingGame() {
   location.href = "index.html";
+}
+
+//function uptade timer
+function updateTimer() {
+  seconds++;
+
+  if (seconds === 60) {
+    seconds = 0;
+    minutes++;
+  }
+
+  if (minutes === 60) {
+    minutes = 0;
+    hours++;
+  }
+
+  formattedTime = `${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
+
+  timerElement.textContent = formattedTime;
+}
+
+function pad(num) {
+  return num.toString().padStart(2, "0");
 }
