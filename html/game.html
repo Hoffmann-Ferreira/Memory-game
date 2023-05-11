@@ -1,20 +1,28 @@
 <!DOCTYPE html>
 <html lang="PT-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="../css/reset.css" rel="stylesheet" type="text/css" />
     <link href="../css/styles.css" rel="stylesheet" type="text/css" />
     <title>Jogo da memória</title>
-</head>
-<body>
+  </head>
+  <body onload="showCards()">
     <header></header>
     <main>
-       <p>hello world</p> 
+      <h3>Bem vindo ao jogo da memória!</h3>
+      <p>
+        Seu objetivo é conseguir encontrar as cartas semelhantes com o menor
+        número de cliques!
+      </p>
+      <p>Boa sorte!!!</p>
+      <div id="attempts"><h4>Quantidade de tentativas 0</h4></div>
+      <div id="timer">00:00:00</div>
+      <div id="cardsContainer"></div>
     </main>
-    <button onclick="test()"> ver quantidade</button>
+    <div id="finishedGame"></div>
     <footer></footer>
     <script src="../js/main.js"></script>
-</body>
+  </body>
 </html>
