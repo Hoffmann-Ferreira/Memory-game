@@ -12,23 +12,30 @@
       href="https://fonts.googleapis.com/css2?family=Caveat&display=swap"
       rel="stylesheet"
     />
+    <link rel="shortcut icon" href="#" />
     <title>Jogo da memória</title>
   </head>
   <body>
     <header></header>
     <main>
+      <audio
+        src="../music/8d82b5_The_Simpsons_Theme_Song.mp3"
+        controls
+        autoplay
+        loop
+      ></audio>
       <aside>
         <img src="../images/logoS.png" alt="logo the simpsons" />
         <div class="infoContainer">
           <h2>Bem vindo ao jogo da memória!</h2>
-        <p>O objetivo deste jogo é testar sua memória!</p>
-        <p>As regras são as seguintes:</p>
-        <ol>
-          <li>Escolha o número par de cartas entre 4 e 14!</li>
-          <li>Cada clique em uma carta irá virar ela</li>
-          <li>Encontre as cartas  pares!</li>
-        </ol>
-        <p>Complete o jogo no menor tempo e com o menor n° de tentativas!</p>
+          <p>O objetivo deste jogo é testar sua memória!</p>
+          <p>As regras são as seguintes:</p>
+          <ol>
+            <li>Escolha o número par de cartas entre 4 e 14!</li>
+            <li>Cada clique em uma carta irá virar ela</li>
+            <li>Encontre as cartas pares!</li>
+          </ol>
+          <p>Complete o jogo no menor tempo e com o menor n° de tentativas!</p>
         </div>
       </aside>
 
@@ -39,9 +46,11 @@
             <label for="number">Qual o número de cartas?</label>
             <input id="amontCards" type="number" name="number" />
           </p>
-          <button type="submit" value="submit" onclick="formAmoutCards()">
-            Iniciar o jogo!
-          </button>
+          <div class="buttonContainer">
+            <button type="submit" value="submit" onclick="formAmoutCards()">
+              INICIAR
+            </button>
+          </div>
         </fieldset>
       </form>
     </main>
