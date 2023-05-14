@@ -78,6 +78,7 @@ function showCards() {
     <img src='../images/charactersCards/simpsons${i}.png'>
     </div>
     <div class="card-front">
+    <img class= "logoCard" src='../images/logoS.png' alt="Logo os Simpsons">
     </div>
 </div>`);
   }
@@ -149,8 +150,8 @@ function finishedGame(finished) {
 
     setTimeout(() => {
       let modalcongratulations = document.getElementById("finishedGame");
-      modalcongratulations.innerHTML = `<div class="modalCloseOrder">
-    <div class="modalConfirmOrder">
+      modalcongratulations.innerHTML = `<div class="ContainerCongratulations">
+    <div class="modalCongratulations">
       <h2> Parabéns você venceu!!!</h2>
       <div id="yourTime"></div>
       <div id="yourAttempts"></div>

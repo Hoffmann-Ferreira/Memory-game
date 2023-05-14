@@ -5,20 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="../css/reset.css" rel="stylesheet" type="text/css" />
-    <link href="../css/styles.css" rel="stylesheet" type="text/css" />
+    <link href="../css/gamestyles.css" rel="stylesheet" type="text/css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat&display=swap"
+      rel="stylesheet"
+    />
     <title>Jogo da memória</title>
   </head>
   <body onload="showCards()">
     <header></header>
     <main>
-      <h3>Bem vindo ao jogo da memória!</h3>
-      <p>
-        Seu objetivo é conseguir encontrar as cartas semelhantes com o menor
-        número de cliques!
-      </p>
-      <p>Boa sorte!!!</p>
-      <div id="attempts"><h4>Quantidade de tentativas 0</h4></div>
-      <div id="timer">00:00:00</div>
+      <aside>
+        <div class="gameInfoContainer">
+          <h3>Bem vindo ao jogo da memória!</h3>
+          <p>
+            Seu objetivo é encontrar as cartas pares com o menor número de
+            cliques!
+          </p>
+          <p>Boa sorte!!!</p>
+        </div>
+        <div class="scoreContainer">
+          <div id="attempts"><h4>Quantidade de tentativas 0</h4></div>
+          <div id="timer">00:00:00</div>
+        </div>
+      </aside>
       <div id="cardsContainer"></div>
     </main>
     <div id="finishedGame"></div>
