@@ -57,9 +57,12 @@ function formAmoutCards() {
     let numberNotEven = document.getElementById("modalNotEven");
 
     numberNotEven.innerHTML = `<div id="modalNumberNotEven">
+      <img src="../images/thinking.png" alt="Hommer pensando"/>
+      <div class= "containerMessage">
         <p> O número que você escolheu não é par ou é menor que 4 ou maior que 14</p>
         <p>Um número par qualquer é numero que ao ser dividido pelo número dois, resulta em um número inteiro 😁</p>
-        <button onclick="window.location.reload()"> tentar novamente </button>
+        <button onclick="window.location.reload()"> RETORNAR </button>
+      </div>
       </div>`;
   }
 }
