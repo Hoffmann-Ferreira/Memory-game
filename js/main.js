@@ -83,11 +83,14 @@ function showCards() {
 </div>`);
   }
 
-  function shuffle() {
-    return Math.random() - 0.5;
+  function shuffle(array) {
+    for (i = array.length - 1; i > 0; i--) {
+      let shuffling = Math.floor(Math.random() * (i + 1));
+      [array[i], array[shuffling]] = [array[shuffling], array[i]];
+    }
   }
 
-  cardsInTheGame.sort(shuffle);
+  shuffle(cardsInTheGame);
 
   let aplicationCards = document.getElementById("cardsContainer");
 
@@ -99,7 +102,6 @@ function showCards() {
 //function turn cards
 function turnCads(card) {
   checkCounter++;
-  console.log(checkCounter);
 
   document.getElementById(card).classList.add("active");
   let showAttempt = document.getElementById("attempts");
