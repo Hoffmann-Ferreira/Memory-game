@@ -99,7 +99,7 @@ function showCards() {
 //function turn cards
 function turnCads(card) {
   checkCounter++;
-  attempt++;
+  console.log(checkCounter);
 
   document.getElementById(card).classList.add("active");
   let showAttempt = document.getElementById("attempts");
@@ -107,10 +107,14 @@ function turnCads(card) {
 
   if (checkCounter === 1) {
     checkCard = card;
+    attempt++;
+    showAttempt.innerHTML = `<h4>Quantidade de tentativas ${attempt}</h4>`;
   }
 
-  if (checkCounter > 1) {
+  if (checkCounter > 1 && card != checkCard) {
     checkCards(card);
+    attempt++;
+    showAttempt.innerHTML = `<h4>Quantidade de tentativas ${attempt}</h4>`;
   }
 }
 
