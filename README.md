@@ -4,8 +4,8 @@
 
 <p>The development was aimed at manipulating the DOM, with the aim of training and improving basic techniques. The technologies used were: </p>
 <ol>
-  <ul>HTML5</ul>
-  <ul>CSS3</ul>
+  <ul>* HTML5</ul>
+  <ul>* CSS3</ul>
 </ol>
 
 <h2 align=center>Installation</h2>
