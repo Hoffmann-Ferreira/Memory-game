@@ -6,6 +6,7 @@
 <ol>
   <ul>* HTML5</ul>
   <ul>* CSS3</ul>
+  <ul>* JavaScript</ul>
 </ol>
 
 <h2 align=center>Installation</h2>
