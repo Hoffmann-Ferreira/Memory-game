@@ -20,7 +20,7 @@
 <h2 align=center>Final design</h2>
 
 <div align=center>
-    <img src="./images/gameMacbook.png" alt="imagen meramente ilustrativa" width="250" height="500"/>
+    <img src="./images/gameMacbook.png" alt="imagen meramente ilustrativa" width="750" height="500"/>
     <img src="./images/iPhone.png" alt="imagen meramente ilustrativa" width="250" height="500"/>
 </div>
 
