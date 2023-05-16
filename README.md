@@ -1,5 +1,4 @@
 <style>
-  /* CSS styles */
   h1 {
     color: #333;
     font-size: 24px;
