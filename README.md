@@ -1,40 +1,24 @@
-<style>
-  h1 {
-    color: #333;
-    font-size: 24px;
-  }
+<h1>Simpsons memory game</h1>
 
-  p {
-    color: #666;
-    font-size: 16px;
-  }
+<p>This project is a memory game, with a theme focused on the animated series and sitcom The Simpsons. </p>
 
-  .important {
-    color: red;
-    font-weight: bold;
-  }
-</style>
-
-<h1>My Project</h1>
-
-<p>This is a description of my project.</p>
+<p>The development was aimed at manipulating the DOM, with the aim of training and improving basic techniques. The technologies used were: </p>
+<ol>
+  <ul>HTML5</ul>
+  <ul>CSS3</ul>
+</ol>
 
 <h2>Installation</h2>
 
 <p>To install this project, follow these steps:</p>
 
 <ol>
-  <li>Clone the repository: <code>git clone https://github.com/your-username/your-project.git</code></li>
+  <li>Clone the repository: <code>git clone https://github.com/Hoffmann-Ferreira/Memory-game.git</code></li>
   <li>Install dependencies: <code>npm install</code></li>
-  <li>Start the server: <code>npm start</code></li>
 </ol>
 
-<h2>Usage</h2>
+<h2>Final design</h2>
 
-<p class="important">Here are some examples of how to use this project:</p>
-
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec fermentum vestibulum nibh, eu commodo odio fringilla in.</p>
-
-
-
+<img src="../images/gameMacbook.png" alt="imagen meramente ilustrativa"/>
+<img src="../images/iPhone.png" alt="imagen meramente ilustrativa"/>
 
