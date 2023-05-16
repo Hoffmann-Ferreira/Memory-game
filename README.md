@@ -19,6 +19,6 @@
 
 <h2>Final design</h2>
 
-<img src="../images/gameMacbook.png" alt="imagen meramente ilustrativa"/>
-<img src="../images/iPhone.png" alt="imagen meramente ilustrativa"/>
+<img src="./images/gameMacbook.png" alt="imagen meramente ilustrativa"/>
+<img src="./images/iPhone.png" alt="imagen meramente ilustrativa"/>
 
