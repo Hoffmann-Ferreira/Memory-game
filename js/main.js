@@ -57,9 +57,12 @@ function formAmoutCards() {
     let numberNotEven = document.getElementById("modalNotEven");
 
     numberNotEven.innerHTML = `<div id="modalNumberNotEven">
+      <img src="../images/thinking.png" alt="Hommer pensando"/>
+      <div class= "containerMessage">
         <p> O número que você escolheu não é par ou é menor que 4 ou maior que 14</p>
         <p>Um número par qualquer é numero que ao ser dividido pelo número dois, resulta em um número inteiro 😁</p>
-        <button onclick="window.location.reload()"> tentar novamente </button>
+        <button onclick="window.location.reload()"> RETORNAR </button>
+      </div>
       </div>`;
   }
 }
@@ -75,15 +78,19 @@ function showCards() {
     <img src='../images/charactersCards/simpsons${i}.png'>
     </div>
     <div class="card-front">
+    <img class= "logoCard" src='../images/logoS.png' alt="Logo os Simpsons">
     </div>
 </div>`);
   }
 
-  function shuffle() {
-    return Math.random() - 0.5;
+  function shuffle(array) {
+    for (i = array.length - 1; i > 0; i--) {
+      let shuffling = Math.floor(Math.random() * (i + 1));
+      [array[i], array[shuffling]] = [array[shuffling], array[i]];
+    }
   }
 
-  cardsInTheGame.sort(shuffle);
+  shuffle(cardsInTheGame);
 
   let aplicationCards = document.getElementById("cardsContainer");
 
@@ -95,7 +102,6 @@ function showCards() {
 //function turn cards
 function turnCads(card) {
   checkCounter++;
-  attempt++;
 
   document.getElementById(card).classList.add("active");
   let showAttempt = document.getElementById("attempts");
@@ -103,10 +109,14 @@ function turnCads(card) {
 
   if (checkCounter === 1) {
     checkCard = card;
+    attempt++;
+    showAttempt.innerHTML = `<h4>Quantidade de tentativas ${attempt}</h4>`;
   }
 
-  if (checkCounter > 1) {
+  if (checkCounter > 1 && card != checkCard) {
     checkCards(card);
+    attempt++;
+    showAttempt.innerHTML = `<h4>Quantidade de tentativas ${attempt}</h4>`;
   }
 }
 
@@ -146,8 +156,8 @@ function finishedGame(finished) {
 
     setTimeout(() => {
       let modalcongratulations = document.getElementById("finishedGame");
-      modalcongratulations.innerHTML = `<div class="modalCloseOrder">
-    <div class="modalConfirmOrder">
+      modalcongratulations.innerHTML = `<div class="ContainerCongratulations">
+    <div class="modalCongratulations">
       <h2> Parabéns você venceu!!!</h2>
       <div id="yourTime"></div>
       <div id="yourAttempts"></div>
